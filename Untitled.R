@@ -48,4 +48,23 @@ convertir_temperatura <- function(valor, unidad_origen, unidad_destino) {
       cat("Unidad de temperatura de destino no reconocida.\n")
     }}
   
-  
+ else if (unidad_origen == "Rankine") {
+    if (unidad_destino == "Celsius") {
+      resultado <- (valor - 491.67) * 5/9
+      cat(valor, "grados Rankine son equivalentes a", resultado, "grados Celsius.\n")
+    } else if (unidad_destino == "Fahrenheit") {
+      resultado <- valor - 459.67
+      cat(valor, "grados Rankine son equivalentes a", resultado, "grados Fahrenheit.\n")
+    } else if (unidad_destino == "Kelvin") {
+      resultado <- valor * 5/9
+      cat(valor, "grados Rankine son equivalentes a", resultado, "Kelvin.\n")
+    } else {
+      cat("Unidad de temperatura de destino no reconocida.\n")
+    }
+  } else {
+    cat("Unidad de temperatura de origen no reconocida.\n")
+  }
+}
+
+# Realizar la conversión de temperatura y mostrar el resultado
+convertir_temperatura(valor, unidad_origen, unidad_destino)
